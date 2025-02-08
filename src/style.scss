@@ -3,6 +3,7 @@
 @tailwind utilities;
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
+
 @font-face {
 	font-family: 'fraunces144pt';
 	src: url('./fonts/fraunces144pts000-semibold-webfont.woff2')
