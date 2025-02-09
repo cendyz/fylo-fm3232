@@ -15,6 +15,9 @@
 				</div>
 			</div>
 		</section>
+    <section>
+      <p class="text-blue-50">You've used <span>815 gb</span> of your storage</p>
+    </section>
 	</main>
 </template>
 
