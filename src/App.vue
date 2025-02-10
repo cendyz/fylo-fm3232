@@ -5,7 +5,8 @@
 	</picture>
 	<main class="relative w-[87vw]">
 		<section class="bg-blue-0 p-[4rem] w-full grid gap-y-[3.5rem] rounded-2xl rounded-tr-[10rem]">
-			<img :src="logo" alt="three squares on top of each other and text fylo" />
+			<img :src="logo" alt="three squares on top of each other and
+			text fylo" />
 			<div class="flex gap-x-[1.5rem] items-center">
 				<div
 					v-for="item in data"
@@ -15,8 +16,14 @@
 				</div>
 			</div>
 		</section>
-    <section>
-      <p class="text-blue-50">You've used <span>815 gb</span> of your storage</p>
+    <section class="bg-blue-0 p-[4rem] w-full grid gap-y-[1.5rem] rounded-2xl mt-[2rem]">
+      <p class="text-blue-50 opacity-70 text-[1.5rem] text-center">You've used <span class="font-bold uppercase">815 gb</span> of your storage</p>
+      <input type="range">
+      <div class="flex justify-between text-white font-semibold opacity-90">
+        <p>0 GB</p>
+        <p>1000 GB</p>
+      </div>
+      <div class="flex items-center text-[4.5rem] font-bold bg-white w-fit py-[.5rem] px-[2rem]">185 <span class="uppercase text-[1.4rem]">gb left</span></div>
     </section>
 	</main>
 </template>
