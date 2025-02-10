@@ -2,17 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
-
-<<<<<<< HEAD
-
-=======
->>>>>>> d514de4 (test)
-@font-face {
-	font-family: 'fraunces144pt';
-	src: url('./fonts/fraunces144pts000-semibold-webfont.woff2')
-			format('woff2'),
-		url('./fonts/fraunces144pts000-semibold-webfont.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
-	font-display: swap;
-}

@@ -4,14 +4,8 @@
 		<img :src="mobileBg" alt="" class="absolute w-full h-full top-0 left-0" />
 	</picture>
 	<main class="relative w-[87vw]">
-<<<<<<< HEAD
-		<section class="bg-blue-0 p-[4rem] w-full grid gap-y-[3.5rem] rounded-2xl rounded-tr-[10rem]">
-			<img :src="logo" alt="three squares on top of each other and
-			text fylo" />
-=======
 		<section class="bg-blue-0 p-[4rem] grid gap-y-[3.5rem] rounded-2xl rounded-tr-[10rem]">
 			<img :src="logo" alt="three squares on top of each other and text fylo" />
->>>>>>> d514de4 (test)
 			<div class="flex gap-x-[1.5rem] items-center">
 				<div
 					v-for="item in data"
@@ -21,18 +15,21 @@
 				</div>
 			</div>
 		</section>
-<<<<<<< HEAD
-    <section class="bg-blue-0 p-[4rem] w-full grid gap-y-[1.5rem] rounded-2xl mt-[2rem]">
-      <p class="text-blue-50 opacity-70 text-[1.5rem] text-center">You've used <span class="font-bold uppercase">815 gb</span> of your storage</p>
-      <input type="range">
-      <div class="flex justify-between text-white font-semibold opacity-90">
-        <p>0 GB</p>
-        <p>1000 GB</p>
-      </div>
-      <div class="flex items-center text-[4.5rem] font-bold bg-white w-fit py-[.5rem] px-[2rem]">185 <span class="uppercase text-[1.4rem]">gb left</span></div>
-    </section>
-=======
->>>>>>> d514de4 (test)
+		<section class="bg-blue-0 p-[4rem] w-full grid gap-y-[1.5rem] rounded-2xl mt-[2rem] pb-[4.5rem] relative">
+			<p class="text-blue-50 opacity-70 text-[1.45rem] text-center">
+				You've used <span class="font-bold uppercase">{{ actualValue }} gb</span> of your storage
+			</p>
+			<input type="range" v-model="actualValue" min="0" max="1000" />
+			<div class="flex justify-between text-white font-semibold opacity-90">
+				<p>0 GB</p>
+				<p>1000 GB</p>
+			</div>
+			<div
+				class="flex items-center text-[4rem] font-bold bg-white w-max py-[.5rem] px-[2rem] absolute left-1/2 translate-x-[-50%] translate-y-[-50%] bottom-[-40%] rounded-3xl">
+				<p>{{ restValue }}</p>
+				<p class="uppercase text-[1.3rem] text-gray-400 ml-[1rem] mt-[.5rem]">gb left</p>
+			</div>
+		</section>
 	</main>
 </template>
 
@@ -44,7 +41,7 @@ import doc from './images/icon-document.svg'
 import folder from './images/icon-folder.svg'
 import upload from './images/icon-upload.svg'
 import { nanoid } from 'nanoid'
-import { reactive } from 'vue'
+import { reactive, ref, computed } from 'vue'
 const data = reactive({
 	0: {
 		img: doc,
@@ -59,6 +56,8 @@ const data = reactive({
 		alt: 'upload icon',
 	},
 })
+const actualValue = ref(815)
+const restValue = computed(() => 1000 - actualValue.value)
 </script>
 
 <style lang="scss">
