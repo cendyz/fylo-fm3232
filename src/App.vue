@@ -19,7 +19,14 @@
 			<p class="text-blue-50 opacity-70 text-[1.45rem] text-center">
 				You've used <span class="font-bold uppercase">{{ actualValue }} gb</span> of your storage
 			</p>
-			<input type="range" v-model="actualValue" min="0" max="1000" />
+
+			<input
+				type="range"
+				v-model="actualValue"
+				min="0"
+				max="1000"
+				class="relative w-full bg-blue-400 rounded-3xl border-x-[4px] border-blue-400"
+				@input="handleRange" />
 			<div class="flex justify-between text-white font-semibold opacity-90">
 				<p>0 GB</p>
 				<p>1000 GB</p>
@@ -58,8 +65,37 @@ const data = reactive({
 })
 const actualValue = ref(815)
 const restValue = computed(() => 1000 - actualValue.value)
+
+const handleRange = (): void => {
+	let newValue = actualValue.value / 10
+	document.documentElement.style.setProperty('--actualValue', `${newValue}%`)
+}
 </script>
 
 <style lang="scss">
 @use './sass/reset.scss';
+@use './sass/mixins.scss' as *;
+:root {
+	--actualValue: 81.5%;
+}
+
+input[type='range'] {
+	-webkit-appearance: none;
+}
+
+input[type='range']::-webkit-slider-thumb {
+	@include thumb;
+}
+
+input[type='range']::-moz-range-thumb {
+	@include thumb;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+	@include slider;
+}
+
+input[type='range']::-moz-range-track {
+	@include slider;
+}
 </style>
