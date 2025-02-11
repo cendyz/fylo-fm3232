@@ -10,7 +10,7 @@
 				<div
 					v-for="item in data"
 					:key="nanoid()"
-					class="w-[4.5rem] h-[4.5rem] flex items-center justify-center bg-[#0c132a] rounded-[1rem]">
+					class="w-[4.5rem] h-[4.5rem] flex items-center justify-center bg-[#0c132a] rounded-[1rem] lg:cursor-pointer">
 					<img :src="item.img" :alt="item.alt" />
 				</div>
 			</div>
